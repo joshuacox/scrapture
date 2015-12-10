@@ -10,7 +10,7 @@ this will create a directory in /tmp with a suffix of `.scrap` and in that direc
 
 then it will append a line /tmp/playscrap.sh so you can easily `bash /tmp/playscrap.sh` to watch all your screen captures
 
-when you are done recording us `./ks` WARNING this will kill all avconv processes your user is running, so don’t do this while converting video on the same machine as the same user
+when you are done recording use `./ks` WARNING this will kill all avconv processes your user is running, so don’t do this while converting video on the same machine as the same user
 
 ### requirements
 
