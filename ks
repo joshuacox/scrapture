@@ -1,2 +1,3 @@
 #!/bin/bash
-pidof avconv|xargs -n1 -I{} kill -INT {}
+FFMPEG=ffmpeg
+pidof $FFMPEG|xargs -n1 -I{} kill -INT {}
