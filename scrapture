@@ -1,7 +1,13 @@
 #!/bin/bash
 #FFMPEG=avconv
-FFMPEG=ffmpeg
+echo -n ffmpeg is set to  ${FFMPEG:=ffmpeg}
+# echo -n "with device ${DEVICE:=avfoundation}"
+echo -n " with device ${DEVICE:=x11grab}"
+echo -n " and index of ${INDEX:=-i :0.0}"
+echo -n " and a framerate of ${FRAMERATE:=30}"
 TMP_DIR=$(mktemp -d --suffix='.scrap')
 CUR_RES=$(xrandr  | grep \* | cut -d' ' -f4)
-$FFMPEG -video_size $CUR_RES -framerate 30 -f x11grab -i :0.0  $TMP_DIR/scrap.mp4
+echo " and res is $CUR_RES"
+$FFMPEG -video_size $CUR_RES -framerate $FRAMERATE -f $DEVICE $INDEX TMP_DIR/scrap.mp4
 echo "vlc $TMP_DIR/scrap.mp4">>/tmp/playscrap.sh
+chmod +x /tmp/playscrapt.sh

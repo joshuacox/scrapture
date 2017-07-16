@@ -21,3 +21,15 @@ avconv and vlc are easily swappable for ffmpeg or mplayer respectively
 ### install 
 
 `make install` will install the two scripts into `/usr/local/bin`
+
+### Configuration
+
+you can set variables right on the command line
+
+```
+DEVICE=avconv INDEX="<screen device index>:<audio device index>" FRAMERATE=30 scrapture
+```
+
+### Reference
+
+For windows, mac, and linux specifics go [here](https://trac.ffmpeg.org/wiki/Capture/Desktop)
