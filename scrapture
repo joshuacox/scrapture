@@ -9,6 +9,6 @@ echo -n " and a video player of ${VPLAYER:=vlc}"
 TMP_DIR=$(mktemp -d --suffix='.scrap')
 CUR_RES=$(xrandr  | grep \* | cut -d' ' -f4)
 echo " and res is $CUR_RES"
-$FFMPEG -video_size $CUR_RES -framerate $FRAMERATE -f $DEVICE $INDEX TMP_DIR/scrap.mp4
+$FFMPEG -video_size $CUR_RES -framerate $FRAMERATE -f $DEVICE $INDEX $TMP_DIR/scrap.mp4
 echo "$VPLAYER $TMP_DIR/scrap.mp4">>/tmp/playscrap.sh
-chmod +x /tmp/playscrapt.sh
+chmod +x /tmp/playscrap.sh
