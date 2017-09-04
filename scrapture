@@ -1,6 +1,8 @@
 #!/bin/bash
 #FFMPEG=avconv
+source ~/.scrapture.conf
 echo -n ffmpeg is set to  ${FFMPEG:=ffmpeg}
+echo -n video codec is set to  ${VCODEC:=mp4}
 # echo -n "with device ${DEVICE:=avfoundation}"
 echo -n " with device ${DEVICE:=x11grab}"
 echo -n " and index of ${INDEX:=-i :0.0}"
@@ -9,6 +11,6 @@ echo -n " and a video player of ${VPLAYER:=vlc}"
 TMP_DIR=$(mktemp -d --suffix='.scrap')
 CUR_RES=$(xrandr  | grep \* | cut -d' ' -f4)
 echo " and res is $CUR_RES"
-$FFMPEG -video_size $CUR_RES -framerate $FRAMERATE -f $DEVICE $INDEX $TMP_DIR/scrap.mp4
-echo "$VPLAYER $TMP_DIR/scrap.mp4">>/tmp/playscrap.sh
+$FFMPEG -video_size $CUR_RES -framerate $FRAMERATE -f $DEVICE $INDEX $TMP_DIR/scrap.$VCODEC
+echo "$VPLAYER $TMP_DIR/scrap.$VCODEC">>/tmp/playscrap.sh
 chmod +x /tmp/playscrap.sh
