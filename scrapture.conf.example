@@ -1,0 +1,3 @@
+#!/bin/bash
+VCODEC=webm
+FFMPEG=ffmpeg
